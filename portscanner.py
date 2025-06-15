@@ -4,7 +4,6 @@ import sys
 
 
 def scanHost(ip, startPort, endPort):
-    """Starts a TCP scan on a single IP address"""
     print('[*] Scanning host:', ip)
     open_ports = tcp_scan(ip, startPort, endPort)
 
@@ -16,7 +15,6 @@ def scanHost(ip, startPort, endPort):
 
 
 def scanRange(network, startPort, endPort):
-    """Starts a TCP scan on an entire subnet range (e.g., 192.168.1.0/24)"""
     print('[*] Scanning network: %s.0/24' % network)
     for host in range(1, 255):
         ip = network + '.' + str(host)
@@ -29,7 +27,6 @@ def scanRange(network, startPort, endPort):
 
 
 def tcp_scan(ip, startPort, endPort):
-    """Scans the given IP for open TCP ports and returns a list of open ports"""
     open_ports = []
     for port in range(startPort, endPort + 1):
         try:
